@@ -1,0 +1,126 @@
+button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 50px;
+}
+
+input{
+  width: 150px;
+  height: 30px;
+}
+
+tr{
+  display: flex;
+}
+
+th{
+  display: flex;
+  height: 100px;
+  width: 100px;
+  background-color: yellow;
+  align-items: center;
+  justify-content: center;
+}
+
+img{
+  height: 200px;
+  width: auto;
+}
+#root{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.winner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.welcome{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.BoardPage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.currentPlayer{
+  display: flex;
+  height: 140px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#playerName{
+  display: flex;
+}
+
+.Board{
+  display: flex;
+}
+
+.inputNames{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+#cutOut{
+  display: flex;
+  width: 70px;
+  height: 70px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  background-color: white;
+  /*box-shadow: 1px 1px;*/
+  -moz-box-shadow: 0 0 5px 5px #888;
+  -webkit-box-shadow: 0 0 5px 5px#888;
+  box-shadow: 0 0 5px 5px #888;
+}
+
+#player1Coin{ 
+  display: flex;
+  width: 70px;
+  height: 70px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  background-color: blue;
+  /*box-shadow: 1px 1px;*/
+  -moz-box-shadow: 0 0 1px 1px #888;
+  -webkit-box-shadow: 0 0 1px 1px #888;
+  box-shadow: 0 0 1px 1px #888;
+}
+
+#player2Coin{
+  display: flex;
+  width: 70px;
+  height: 70px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  background-color: red;
+  /*box-shadow: 1px 1px;*/
+  -moz-box-shadow: 0 0 1px 1px #888;
+  -webkit-box-shadow: 0 0 1px 1px #888;
+  box-shadow: 0 0 1px 1px #888;
+}
