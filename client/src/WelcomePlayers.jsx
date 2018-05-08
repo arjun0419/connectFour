@@ -23,7 +23,7 @@ class WelcomePlayers extends React.Component {
       <div className="welcome">
         <h1>Welcome to the game {player1} & {player2}!</h1>
         <h3>Click below when you are ready to start! Good luck!</h3>
-        <button onClick={this.handleButtonClick}>Ready!</button>
+        <button id="greenButton" onClick={this.handleButtonClick}>Ready!</button>
       </div>
     );
 

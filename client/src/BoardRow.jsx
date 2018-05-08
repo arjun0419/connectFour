@@ -1,15 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import BoardSlot from './BoardSlot';
 
-const Row = ({ rowValues, handleColumnClick }) => {
-  const slots = rowValues.map((slot, index) => (
-    <BoardSlot slot={slot} column={index} handleColumnClick={handleColumnClick} />
-  ));
+const Row = ({ rowIndex, rowValues }) => {
+  const slots = rowValues.map((slot, index) => {
+    const id = `${rowIndex}${index}`;
+    return (<BoardSlot
+      key={id}
+      slot={slot}
+      column={index}
+    />);
+  });
 
-  return (<tr>{slots}</tr>);
+  return (<tr id="slotRow" key={rowIndex.toString()}>{slots}</tr>);
 };
 
 export default Row;
-

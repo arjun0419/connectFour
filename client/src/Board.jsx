@@ -15,6 +15,7 @@ class Board extends React.Component {
       player2: this.props.player2,
       player1turn: true,
       winner: false,
+      coinsPlaced: 0,
     };
 
     this.handleColumnClick = this.handleColumnClick.bind(this);
@@ -28,7 +29,9 @@ class Board extends React.Component {
   }
 
   handleColumnClick(columnIndex) {
-    this.placeCoin(Number(columnIndex), 0);
+    if (this.state.board[0][columnIndex].coin === false && !this.state.winner) {
+      this.placeCoin(Number(columnIndex), 0);
+    }
   }
 
   placeCoin(column, row) {
@@ -38,6 +41,7 @@ class Board extends React.Component {
     if (currentBoard[row][column].coin === false) {
       currentBoard[row][column].coin = playerNumber;
     }
+
     this.setState({ board: currentBoard });
 
     setTimeout(() => {
@@ -46,6 +50,8 @@ class Board extends React.Component {
         this.setState({ board: currentBoard });
         this.placeCoin(column, row + 1);
       } else {
+        const coinsPlaced = this.state.coinsPlaced + 1;
+        this.setState({ coinsPlaced });
         this.checkBoard(row, column);
         const playerTurn = !this.state.player1turn;
         this.setState({ player1turn: playerTurn });
@@ -60,12 +66,23 @@ class Board extends React.Component {
     const winner = rowWin || columnWin || diagonalWin;
     if (winner) {
       this.setState({ winner });
+    } else if (this.state.coinsPlaced === 42) {
+      this.setState({ winner: 'tie' });
     }
   }
 
   render() {
-    const rows = this.state.board.map(row =>
-      <BoardRow rowValues={row} handleColumnClick={this.handleColumnClick} />);
+    const rows = this.state.board.map((row, rowIndex) =>
+      (<BoardRow
+        key={rowIndex.toString()}
+        rowIndex={rowIndex}
+        rowValues={row}
+      />));
+
+    const dropCoinButtons = [0, 1, 2, 3, 4, 5, 6].map(column => (
+      <th key={column}>
+        <button value={column} onClick={() => this.handleColumnClick(column)} id="dropCoin"><img src="arrow.png" alt="arrow" /></button>
+      </th>));
 
     const boardplayer = (
       <div>
@@ -76,6 +93,9 @@ class Board extends React.Component {
         />
         <table className="Board">
           <tbody>
+            <tr>
+              {dropCoinButtons}
+            </tr>
             {rows}
           </tbody>
         </table>
@@ -86,6 +106,7 @@ class Board extends React.Component {
       winnerID={this.state.winner}
       player1={this.state.player1}
       player2={this.state.player2}
+      rows={rows}
     />);
 
     const view = this.state.winner ? boardWinner : boardplayer;

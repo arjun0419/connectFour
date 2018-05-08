@@ -33,7 +33,7 @@ class Game extends React.Component {
         <input onChange={e => this.handleNameSubmission(e, 'player1')} />
         <h3>What is your name Player 2?</h3>
         <input onChange={e => this.handleNameSubmission(e, 'player2')} />
-        <button onClick={() => this.handleSubmitButtonClick()}> Submit</button>
+        <button id="greenButton" onClick={() => this.handleSubmitButtonClick()}> Submit</button>
       </div>
     );
 
