@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -d -w",
+    "bundle": "webpack -d",
     "start": "nodemon server/server.js",
-     "postinstall": "npm run build"
+     "postinstall": "npm run bundle"
   },
   "repository": {
     "type": "git",
